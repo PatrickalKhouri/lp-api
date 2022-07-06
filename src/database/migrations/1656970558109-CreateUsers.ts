@@ -23,6 +23,7 @@ export class CreateUsers1656970558109 implements MigrationInterface {
                     },
                     {
                         name: "username",
+                        length: '50',
                         type: "varchar",
                         isUnique: true
                     },
@@ -33,12 +34,24 @@ export class CreateUsers1656970558109 implements MigrationInterface {
                     },
                     {
                         name: "password",
+                        length: '30',
                         type: "varchar",
                     },
                     {
                         name: "phone",
+                        length: '20',
                         type: "varchar",
                         isUnique: true
+                    },
+                    {
+                        name: "created_at",
+                        type: "timestamp",
+                        default: "now()"
+                    },
+                    {
+                        name: "modified_at",
+                        type: "timestamp",
+                        default: "now()"
                     }
                 ]
             })
