@@ -6,6 +6,16 @@ const { port, env } = require('./config/vars');
 const logger = require('./config/logger');
 const app = require('./config/express');
 const db = require('./queries');
+const connectionSource = require('../ormconfig.ts');
+
+connectionSource
+  .initialize()
+  .then(() => {
+    console.log('Data Source has been initialized!');
+  })
+  .catch((err) => {
+    console.error('Error during Data Source initialization:', err);
+  });
 
 app.get('/users', db.getUsers);
 
